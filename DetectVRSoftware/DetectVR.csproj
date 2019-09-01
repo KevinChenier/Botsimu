@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26110D87-3A7F-4AF9-B6AA-AE84173E24E3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>XboxControllerReader</RootNamespace>
+    <AssemblyName>XboxControllerReader</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XInput, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>packages\SharpDX.XInput.4.2.0\lib\net45\SharpDX.XInput.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arduino\Arduino.cs" />
+    <Compile Include="Player\PlayerProperties.cs" />
+    <Compile Include="Main\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="InputReaders\Joystick\XBOX\XInputController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Arduino\InPCBScripts\PWM.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\BareMinimum.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\BareMinimum\BareMinimum.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\BareMinimum\BareMinimum.ino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\ButtonTrigger.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\ButtonTrigger\ButtonTrigger.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\ButtonTrigger\ButtonTrigger.ino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\EncoderLibrary.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\EncoderLibrary\EncoderLibrary.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\EncoderLibrary\EncoderLibrary.ino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\LedIntensity.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\LedIntensity\LedIntensity.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\LedIntensity\LedIntensity.ino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\ReadSensor.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\ReadSensor\ReadSensor.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\ReadSensor\ReadSensor.ino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\Servo.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\Servo\Servo.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\Servo\Servo.ino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\Uduino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\Uduino\Uduino.ino" />
+    <None Include="Arduino\InPCBScripts\Uduino\examples\Uduino\Uduino.ino.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\keywords.txt.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\README.md" />
+    <None Include="Arduino\InPCBScripts\Uduino\README.md.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\Uduino.cpp.meta" />
+    <None Include="Arduino\InPCBScripts\Uduino\Uduino.h.meta" />
+    <None Include="Botsimu\Package\directkeys.py" />
+    <None Include="Botsimu\Package\vjoy.py" />
+    <None Include="Botsimu\Package\x360ce.ini" />
+    <None Include="Botsimu\pygta5-master%28Test%29\1. collect_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\2. train_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\3. test_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\getkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\grabscreen.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\keys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\LICENSE" />
+    <None Include="Botsimu\pygta5-master%28Test%29\models.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\motion.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\README.md" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\draw_lanes.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\grabscreen.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\main.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\part-1-Getting-Visuals.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\part-2-and-3-keyboard-input-and-basic-OpenCV.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\part-4-region-of-interest.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\part-5-line-finding.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\part-6-lane-finder.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 1-7\part-7-self-driving-example.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\alexnet.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\balance_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\collecting-data-for-larger-fpv-model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\create_training_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\getkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\grabscreen.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\test_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 14-15\train_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\alexnet.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\balance_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\create_training_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\getkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\grabscreen.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\test_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\Part 8-13 code\train_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Tutorial Codes\README" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\README" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.01\1. collect_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.01\2. train_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.01\3. test_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.01\alexnet.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.01\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.01\getkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.01\grabscreen.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.02\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.02\getkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.02\models.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.02\motion.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.02\step 1. collect_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.02\step 2. train_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.02\step 3. test_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\1. collect_data.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\2. train_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\3. test_model.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\getkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\grabscreen.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\models.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\Versions\v0.03\motion.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\directkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\getkeys.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\grabscreen.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\main.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\models.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\README" />
+    <None Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\vjoy.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\weighting_class_distributor.py" />
+    <None Include="Botsimu\pygta5-master%28Test%29\xception.py" />
+    <None Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\auto_oculus_touch.ahk" />
+    <None Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\oculus_remote_mouse.ahk" />
+    <None Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\oculus_remote_spotify.ahk" />
+    <None Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\oculus_touch_mouse.ahk" />
+    <None Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\oculus_touch_test.ahk" />
+    <None Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\oculus_touch_vjoy.ahk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="InputReaders\Camera\HTCVIVE\" />
+    <Folder Include="InputReaders\Camera\OculusRiftCV1\" />
+    <Folder Include="InputReaders\Camera\PSVR\" />
+    <Folder Include="InputReaders\Joystick\HTCVIVE\" />
+    <Folder Include="InputReaders\Joystick\PSVR\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Arduino\InPCBScripts\Uduino\keywords.txt" />
+    <Content Include="Arduino\InPCBScripts\Uduino\Uduino.cpp" />
+    <Content Include="Arduino\InPCBScripts\Uduino\Uduino.h" />
+    <Content Include="Botsimu\Package\FirstTimeSetup\vJoySetup.exe" />
+    <Content Include="Botsimu\Package\README%28Botsimu%29.txt" />
+    <Content Include="Botsimu\Package\vJoyInterface.dll" />
+    <Content Include="Botsimu\Package\x360ce_x64.exe" />
+    <Content Include="Botsimu\Package\xinput1_3.dll" />
+    <Content Include="Botsimu\pygta5-master%28Test%29\.gitignore" />
+    <Content Include="Botsimu\pygta5-master%28Test%29\requirements.txt" />
+    <Content Include="Botsimu\pygta5-master%28Test%29\self-driving-car-grand-theft-auto-5.gif" />
+    <Content Include="Botsimu\pygta5-master%28Test%29\vjoy-testing\vJoyInterface.dll" />
+    <Content Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\auto_oculus_touch.dll" />
+    <Content Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\readme.txt" />
+    <Content Include="InputReaders\Joystick\OculusRiftCV1\OculusReader\vJoyInterface.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
