@@ -14,25 +14,50 @@ namespace DetectVR
 
         static void Main(string[] args)
         {
-            while (controller.connected)
+            while (true)
             {
-                controller.Update();
-
-                SendCommandsToArduino();
+                if (controller.connected)
+                {
+                    controller.Update();
+                    WriteJoySticksValue(5);
+                    SendCommandsToArduino();
+                }
+                else
+                {
+                    Console.WriteLine("Controller disconnected!");
+                }
             }
         }
 
-        public static void WriteJoySticksValue(int delay)
+        public static void WriteJoySticksValue(int delay = 0)
         {
+            int top = Console.CursorTop;
+
+            // Clear the joystick values at the stored cursor position
+            Console.SetCursorPosition(0, top);
+            ClearConsoleLine();
+            ClearConsoleLine();
+            ClearConsoleLine();
+            ClearConsoleLine();
+
+            // Write the updated joystick values
+            Console.SetCursorPosition(0, top);
             Console.WriteLine("Left stick x value: " + controller.leftThumb.x);
             Console.WriteLine("Left stick y value: " + controller.leftThumb.y);
 
             Console.WriteLine("Right stick x value: " + controller.rightThumb.x);
             Console.WriteLine("Right stick y value: " + controller.rightThumb.y);
 
-            Console.WriteLine();
-
+            // Delay the output if necessary
             Thread.Sleep(delay);
+        }
+
+        private static void ClearConsoleLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
 
         public static void WriteToFileYValue(string path)

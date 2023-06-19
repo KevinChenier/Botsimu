@@ -7,7 +7,8 @@ import ctypes
 import time
 
 SendInput = ctypes.windll.user32.SendInput
-
+HOST = "localhost"
+PORT = 9988
 
 W = 0x11
 A = 0x1E
@@ -63,9 +64,18 @@ def ReleaseKey(hexKeyCode):
 
 if __name__ == '__main__':
     while(True):
-        PressKey(0x11)
-        time.sleep(0.2)
-        #ReleaseKey(0x11)
-        #time.sleep(0.2)
+    s = socket.socket(socket.AF_INET, #Internet
+                socket.SOCK_DGRAM) #UDP
+    s.bind((HOST, PORT))
+
+    while True:
+        data, addr = s.recvfrom(1)
+        result = bool(int.from_bytes(data, byteorder = 'big'))
+
+        if result:
+            PressKey(0x11)
+            time.sleep(0.2)
+        else:
+            stop()
     
     
